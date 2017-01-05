@@ -3,7 +3,7 @@ package Catmandu::Store::RKD::Bag;
 use Moo;
 use LWP::UserAgent;
 
-use Catmandu::Store::RKD::SearchResult;
+use Catmandu::Store::RKD::API::Name;
 
 use Catmandu::Sane;
 
@@ -16,26 +16,38 @@ sub generator {
 
 sub get {
     my ($self, $id) = @_;
-    my $sr = Catmandu::Store::RKD::SearchResult->new(
-        search_term => sprintf('naamdeel:(%s)', $id)
+    my $sr = Catmandu::Store::RKD::API::Name->new(
+        name_to_search => $id
     );
     return $sr->results;
 }
 
 sub add {
-    my $self = shift;
+    my ($self, $data) = @_;
+    Catmandu::NotImplemented->throw(
+        message => 'Adding item to store not supported.'
+    );
 }
 
 sub update {
-    my $self = shift;
+    my ($self, $id, $data) = @_;
+    Catmandu::NotImplemented->throw(
+        message => 'Updating item in store not supported.'
+    );
 }
 
 sub delete {
-    my $self = shift;
+    my ($self, $id) = @_;
+    Catmandu::NotImplemented->throw(
+        message => 'Deleting item from store not supported.'
+    );
 }
 
 sub delete_all {
     my $self = shift;
+    Catmandu::NotImplemented->throw(
+        message => 'Deleting items from store not supported.'
+    );
 }
 
 1;

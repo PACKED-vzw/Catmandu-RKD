@@ -1,3 +1,8 @@
-add_field(author, 'Hans')
+add_field(author.name, 'Hans Memling')
 
-lookup_in_store(author, RKD)
+#lookup_in_store(author, RKD)
+
+#add_to_store(author, RKD)
+
+rkd_name(author.name)
+vacuum()
