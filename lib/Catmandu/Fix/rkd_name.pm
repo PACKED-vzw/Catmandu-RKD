@@ -8,8 +8,6 @@ use Moo;
 use Catmandu::Fix::Has;
 use Catmandu::Fix::Datahub::Util qw(declare_source);
 
-use Catmandu::Store::RKD::API::Name;
-
 with 'Catmandu::Fix::Base';
 
 has path     => (fix_arg => 1);
