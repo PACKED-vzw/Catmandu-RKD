@@ -21,8 +21,8 @@ Catmandu::Store::RKD - Retrieve items from the RKD
 
 =head1 SYNOPSIS
 
-This module contains two submodules; a L<Catmandu::Fix::rkd_name|fix> to lookup a name in 
-L<https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD>, and a L<Catmandu::Store::RKD|store> to 
+This module contains two submodules; a L<fix|Catmandu::Fix::rkd_name> to lookup a name in 
+L<https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD>, and a L<store|Catmandu::Store::RKD> to 
 lookup an artist id (I<kunstenaarsnummer>) in the RKD database.
 
 =head1 DESCRIPTION
