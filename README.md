@@ -8,8 +8,8 @@ Catmandu::Store::RKD - Retrieve items from the RKD
 
 # SYNOPSIS
 
-This module contains two submodules; a [Catmandu::Fix::rkd\_name](https://metacpan.org/pod/fix) to lookup a name in 
-[https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD](https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD), and a [Catmandu::Store::RKD](https://metacpan.org/pod/store) to 
+This module contains two submodules; a [fix](https://metacpan.org/pod/Catmandu::Fix::rkd_name) to lookup a name in 
+[https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD](https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD), and a [store](https://metacpan.org/pod/Catmandu::Store::RKD) to 
 lookup an artist id (_kunstenaarsnummer_) in the RKD database.
 
 # DESCRIPTION

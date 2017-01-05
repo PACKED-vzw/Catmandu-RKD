@@ -1,6 +1,6 @@
 package Catmandu::Store::RKD;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Catmandu::Sane;
 
