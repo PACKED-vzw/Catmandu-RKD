@@ -6,9 +6,44 @@
 
 Catmandu::Store::RKD - Retrieve items from the RKD
 
+# SYNOPSIS
+
+This module contains two submodules; a [Catmandu::Fix::rkd\_name](https://metacpan.org/pod/fix) to lookup a name in 
+[https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD](https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists|RKD), and a [Catmandu::Store::RKD](https://metacpan.org/pod/store) to 
+lookup an artist id (_kunstenaarsnummer_) in the RKD database.
+
+# DESCRIPTION
+
+## [Catmandu::Fix::rkd\_name](https://metacpan.org/pod/Catmandu::Fix::rkd_name)
+
+The fix takes a name (first name, last name or a combination) and performs a lookup to the RKD artists database. It 
+returns an array of results. Every result is of the form:
+
+    {
+        'title'       => 'Name of the person',
+        'description' => 'Short description, as provided by RKD',
+        'artist_link' => 'Link to the artist using the artist id',
+        'guid'        => 'Permalink to the record'
+    }
+
+For some names, it can/will return multiple possibilities. You must determine yourself which one is the 'correct' one.
+
+## [Catmandu::Store::RKD](https://metacpan.org/pod/Catmandu::Store::RKD)
+
+The fix takes an artist id (_kunstenaarsnummer_) and performs a lookup to the RKD artists database. It 
+returns an array containing either one or no results.  Every result is of the form:
+
+    {
+        'title'       => 'Name of the person',
+        'description' => 'Short description, as provided by RKD',
+        'artist_link' => 'Link to the artist using the artist id',
+        'guid'        => 'Permalink to the record'
+    }
+
 # SEE ALSO
 
 [Catmandu](https://metacpan.org/pod/Catmandu)
+[Catmandu::Fix::rkd\_name](https://metacpan.org/pod/Catmandu::Fix::rkd_name)
 
 # AUTHORS
 
