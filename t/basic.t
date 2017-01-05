@@ -1,8 +1,14 @@
 use strict;
 use Test::More;
-use Catmandu::Store::RKD;
+my @pkgs = qw (
+    Catmandu::Fix::rkd_name
+    Catmandu::Store::RKD
+    Catmandu::Store::RKD::Bag
+    Catmandu::Store::RKD::API::Extract
+    Catmandu::Store::RKD::API::Name
+    Catmandu::Store::RKD::API::Parse
+);
 
-# replace with the actual test
-ok 1;
+require_ok $_ for @pkgs;
 
-done_testing;
+done_testing 6;

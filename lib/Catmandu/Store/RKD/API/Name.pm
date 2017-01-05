@@ -9,8 +9,6 @@ use Catmandu::Sane;
 use Catmandu::Store::RKD::API::Parse;
 use Catmandu::Store::RKD::API::Extract;
 
-use Data::Dumper qw(Dumper);
-
 has name_to_search => (is => 'ro', required => 1);
 
 has engine   => (is => 'lazy');
