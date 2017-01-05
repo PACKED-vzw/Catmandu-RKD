@@ -47,6 +47,7 @@
       },
       "test" : {
          "requires" : {
+            "Catmandu" : "1.0304",
             "Test::More" : "0.96"
          }
       }
