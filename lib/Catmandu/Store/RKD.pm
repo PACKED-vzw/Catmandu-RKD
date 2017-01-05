@@ -11,6 +11,8 @@ with 'Catmandu::Store';
 
 =head1 NAME
 
+=for html <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD.svg?branch=master"></a>
+
 Catmandu::Store::RKD - Retrieve items from the RKD
 
 =cut
