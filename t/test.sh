@@ -1,0 +1,1 @@
+catmandu convert JSON --fix test.fix to YAML < data.json

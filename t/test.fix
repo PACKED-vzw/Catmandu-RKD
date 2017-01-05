@@ -1,0 +1,3 @@
+add_field(author, 'Hans')
+
+lookup_in_store(author, RKD)
