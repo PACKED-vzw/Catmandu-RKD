@@ -1,1 +1,0 @@
-catmandu convert JSON --fix test.fix to JSON < data.json
