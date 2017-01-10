@@ -4,9 +4,9 @@ my @pkgs = qw (
     Catmandu::Fix::rkd_name
     Catmandu::Store::RKD
     Catmandu::Store::RKD::Bag
-    Catmandu::Store::RKD::API::Extract
-    Catmandu::Store::RKD::API::Name
-    Catmandu::Store::RKD::API::Parse
+    Catmandu::RKD::API::Extract
+    Catmandu::RKD::API::Name
+    Catmandu::RKD::API::Parse
 );
 
 require_ok $_ for @pkgs;
