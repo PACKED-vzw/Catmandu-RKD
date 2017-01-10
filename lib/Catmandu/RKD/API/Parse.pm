@@ -1,4 +1,4 @@
-package Catmandu::Store::RKD::API::Parse;
+package Catmandu::RKD::API::Parse;
 
 use Moo;
 use XML::Struct qw(readXML);

@@ -3,7 +3,7 @@ package Catmandu::Store::RKD::Bag;
 use Moo;
 use LWP::UserAgent;
 
-use Catmandu::Store::RKD::API::Number;
+use Catmandu::RKD::API::Number;
 
 use Catmandu::Sane;
 
@@ -16,7 +16,7 @@ sub generator {
 
 sub get {
     my ($self, $id) = @_;
-    my $sr = Catmandu::Store::RKD::API::Number->new(
+    my $sr = Catmandu::RKD::API::Number->new(
         artist_id => $id
     );
     return $sr->results;

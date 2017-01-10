@@ -1,4 +1,4 @@
-package Catmandu::Store::RKD::API::Extract;
+package Catmandu::RKD::API::Extract;
 
 use Moo;
 

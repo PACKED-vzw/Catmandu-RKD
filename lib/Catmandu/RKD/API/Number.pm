@@ -1,11 +1,11 @@
-package Catmandu::Store::RKD::API::Number;
+package Catmandu::RKD::API::Number;
 
 use Moo;
 use LWP::UserAgent;
 
 use Catmandu::Sane;
 
-use Catmandu::Store::RKD::API::Search;
+use Catmandu::RKD::API::Search;
 
 has artist_id => (is => 'ro', required => 1);
 
@@ -15,7 +15,7 @@ sub _build_results {
     my $self = shift;
     my $template = 'https://rkd.nl/opensearch-eac-cpf?q=kunstenaarsnummer:%s';
     my $url = sprintf($template, $self->artist_id);
-    my $search = Catmandu::Store::RKD::API::Search->new(url => $url);
+    my $search = Catmandu::RKD::API::Search->new(url => $url);
     return $search->results;
 }
 

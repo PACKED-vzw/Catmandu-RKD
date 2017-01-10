@@ -1,12 +1,12 @@
-package Catmandu::Store::RKD::API::Search;
+package Catmandu::RKD::API::Search;
 
 use Moo;
 use LWP::UserAgent;
 
 use Catmandu::Sane;
 
-use Catmandu::Store::RKD::API::Parse;
-use Catmandu::Store::RKD::API::Extract;
+use Catmandu::RKD::API::Parse;
+use Catmandu::RKD::API::Extract;
 
 has url => (is => 'ro', required => 1);
 
@@ -25,7 +25,7 @@ sub _build_results {
     my $items = [];
     
     # The results are in $items_raw->{'items'}
-    my $parser = Catmandu::Store::RKD::API::Parse->new(results => $items_raw);
+    my $parser = Catmandu::RKD::API::Parse->new(results => $items_raw);
     my $parsed_items = $parser->items;
     push @{$items}, @{$parsed_items->{'items'}};
 
@@ -35,7 +35,7 @@ sub _build_results {
         my $startIndex = $parsed_items->{'start'} + $parsed_items->{'per_page'};
         $items_raw = $self->__search($startIndex);
 
-        $parser = Catmandu::Store::RKD::API::Parse->new(results => $items_raw);
+        $parser = Catmandu::RKD::API::Parse->new(results => $items_raw);
         $parsed_items = $parser->items;
 
         push @{$items}, @{$parsed_items->{'items'}};
@@ -47,7 +47,7 @@ sub _build_results {
     #    description => biz,
     #    artist_link => xyz
     #}]
-    my $extracter = Catmandu::Store::RKD::API::Extract->new(results => $items);
+    my $extracter = Catmandu::RKD::API::Extract->new(results => $items);
     return $extracter->items;
 }
 

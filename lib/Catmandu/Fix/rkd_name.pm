@@ -16,7 +16,7 @@ sub emit {
     my ($self, $fixer) = @_;
     my $perl = '';
 
-    $perl .= 'use Catmandu::Store::RKD::API::Name;';
+    $perl .= 'use Catmandu::RKD::API::Name;';
 
     my $name = $fixer->generate_var();
     my $rkd = $fixer->generate_var();
@@ -24,7 +24,7 @@ sub emit {
     $perl .= "my ${name};";
     $perl .= declare_source($fixer, $self->path, $name);
 
-    $perl .= "my ${rkd} = Catmandu::Store::RKD::API::Name->new(name_to_search => ${name});";
+    $perl .= "my ${rkd} = Catmandu::RKD::API::Name->new(name_to_search => ${name});";
 
     $perl .= $fixer->emit_create_path(
         $fixer->var,
