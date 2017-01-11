@@ -12,47 +12,39 @@ __END__
 
 =for html <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD.svg?branch=master"></a>
 
-Catmandu::RKD - Retrieve items from the RKD
+Catmandu::RKD - Retrieve items from the RKD (Rijksbureau voor Kunsthistorische Documentatie) artist database
 
 =head1 SYNOPSIS
 
-This module contains two submodules; a L<fix|Catmandu::Fix::rkd_search> to lookup a name in 
-L<RKD|https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists>, and a L<store|Catmandu::Store::RKD> to 
-lookup an artist id (I<kunstenaarsnummer>) in the RKD database.
+    # From the command line
+    $ catmandu export VIAF --id 38885 to YAML
+    ---
+    - artist_link: https://rkd.nl/opensearch-eac-cpf?q=kunstenaarsnummer:38885
+      description: hofschilder, schilder, tekenaar
+      guid: https://rkd.nl/explore/artists/38885
+      title: Hoey, Jan de
+    ...
 
-=head1 DESCRIPTION
+    # From a Catmandu Fix
+    lookup_in_store(
+        objectName,    # objectName is a field containing the RKD identifier
+        RKD
+    )
 
-=head2 L<Catmandu::Fix::rkd_search>
+    # Retrieve a RKD record based on an artist name.
+    rkd_name(path)     # path points to name
 
-The fix takes a name (first name, last name or a combination) and performs a lookup to the RKD artists database. It 
-returns an array of results. Every result is of the form:
+=head1 MODULES
 
-    {
-        'title'       => 'Name of the person',
-        'description' => 'Short description, as provided by RKD',
-        'artist_link' => 'Link to the artist using the artist id',
-        'guid'        => 'Permalink to the record'
-    }
+=over
 
-For some names, it can/will return multiple possibilities. You must determine yourself which one is the 'correct' one.
+=item * L<Catmandu::Store::RKD>
 
-=head2 L<Catmandu::Store::RKD>
+=item * L<Catmandu::Fix::rkd_name>
 
-The store takes an artist id (I<kunstenaarsnummer>) and performs a lookup to the RKD artists database. It 
-returns an array containing either one or no results.  Every result is of the form:
+=item * L<Catmandu::RKD::API::Name>
 
-    {
-        'title'       => 'Name of the person',
-        'description' => 'Short description, as provided by RKD',
-        'artist_link' => 'Link to the artist using the artist id',
-        'guid'        => 'Permalink to the record'
-    }
-
-=head1 SEE ALSO
-
-L<Catmandu>
-L<Catmandu::Fix::rkd_name>
-L<Catmandu::Store::RKD>
+=back
 
 =head1 AUTHORS
 
