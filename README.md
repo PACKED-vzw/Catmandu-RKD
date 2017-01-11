@@ -4,47 +4,33 @@
     <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD.svg?branch=master"></a>
 </div>
 
-Catmandu::RKD - Retrieve items from the RKD
+Catmandu::RKD - Retrieve items from the RKD (Rijksbureau voor Kunsthistorische Documentatie) artist database
 
 # SYNOPSIS
 
-This module contains two submodules; a [fix](https://metacpan.org/pod/Catmandu::Fix::rkd_search) to lookup a name in 
-[RKD](https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists), and a [store](https://metacpan.org/pod/Catmandu::Store::RKD) to 
-lookup an artist id (_kunstenaarsnummer_) in the RKD database.
+    # From the command line
+    $ catmandu export VIAF --id 38885 to YAML
+    ---
+    - artist_link: https://rkd.nl/opensearch-eac-cpf?q=kunstenaarsnummer:38885
+      description: hofschilder, schilder, tekenaar
+      guid: https://rkd.nl/explore/artists/38885
+      title: Hoey, Jan de
+    ...
 
-# DESCRIPTION
+    # From a Catmandu Fix
+    lookup_in_store(
+        objectName,    # objectName is a field containing the RKD identifier
+        RKD
+    )
 
-## [Catmandu::Fix::rkd\_search](https://metacpan.org/pod/Catmandu::Fix::rkd_search)
+    # Retrieve a RKD record based on an artist name.
+    rkd_name(path)     # path points to name
 
-The fix takes a name (first name, last name or a combination) and performs a lookup to the RKD artists database. It 
-returns an array of results. Every result is of the form:
+# MODULES
 
-    {
-        'title'       => 'Name of the person',
-        'description' => 'Short description, as provided by RKD',
-        'artist_link' => 'Link to the artist using the artist id',
-        'guid'        => 'Permalink to the record'
-    }
-
-For some names, it can/will return multiple possibilities. You must determine yourself which one is the 'correct' one.
-
-## [Catmandu::Store::RKD](https://metacpan.org/pod/Catmandu::Store::RKD)
-
-The store takes an artist id (_kunstenaarsnummer_) and performs a lookup to the RKD artists database. It 
-returns an array containing either one or no results.  Every result is of the form:
-
-    {
-        'title'       => 'Name of the person',
-        'description' => 'Short description, as provided by RKD',
-        'artist_link' => 'Link to the artist using the artist id',
-        'guid'        => 'Permalink to the record'
-    }
-
-# SEE ALSO
-
-[Catmandu](https://metacpan.org/pod/Catmandu)
-[Catmandu::Fix::rkd\_name](https://metacpan.org/pod/Catmandu::Fix::rkd_name)
-[Catmandu::Store::RKD](https://metacpan.org/pod/Catmandu::Store::RKD)
+- [Catmandu::Store::RKD](https://metacpan.org/pod/Catmandu::Store::RKD)
+- [Catmandu::Fix::rkd\_name](https://metacpan.org/pod/Catmandu::Fix::rkd_name)
+- [Catmandu::RKD::API::Name](https://metacpan.org/pod/Catmandu::RKD::API::Name)
 
 # AUTHORS
 

@@ -9,9 +9,11 @@ use Catmandu::Sane;
 
 with 'Catmandu::Bag';
 
-
 sub generator {
     my $self = shift;
+    Catmandu::NotImplemented->throw(
+        message => 'Iterating over items in the store not supported.'
+    );
 }
 
 sub get {

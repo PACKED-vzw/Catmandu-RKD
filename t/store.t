@@ -11,30 +11,33 @@ BEGIN {
     use_ok $pkg;
 }
 
-my $record = {
-    'author' => {
-            'id' => '38885'
-        }
-};
+SKIP : {
+    skip "Need network set \$ENV{RELEASE_TESTING}",1 unless $ENV{RELEASE_TESTING};
 
-my $fixer = Catmandu::Fix->new(fixes => ['lookup_in_store(author.id, RKD)']);
-
-my $record2 = $fixer->fix($record);
-
-my $expected = {
-    'author' => {
-        'id' => [
-            {
-                "description" => "hofschilder, schilder, tekenaar",
-                "guid" => "https://rkd.nl/explore/artists/38885",
-                "title" => "Hoey, Jan de",
-                "artist_link" => "https://rkd.nl/opensearch-eac-cpf?q=kunstenaarsnummer:38885"
+    my $record = {
+        'author' => {
+                'id' => '38885'
             }
-        ]
-    }
-};
+    };
 
-is_deeply $record2, $expected;
-    
+    my $fixer = Catmandu::Fix->new(fixes => ['lookup_in_store(author.id, RKD)']);
+
+    my $record2 = $fixer->fix($record);
+
+    my $expected = {
+        'author' => {
+            'id' => [
+                {
+                    "description" => "hofschilder, schilder, tekenaar",
+                    "guid" => "https://rkd.nl/explore/artists/38885",
+                    "title" => "Hoey, Jan de",
+                    "artist_link" => "https://rkd.nl/opensearch-eac-cpf?q=kunstenaarsnummer:38885"
+                }
+            ]
+        }
+    };
+
+    is_deeply $record2, $expected;
+}
 
 done_testing 2;
