@@ -4,17 +4,17 @@
     <a href="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD"><img src="https://travis-ci.org/PACKED-vzw/Catmandu-Store-RKD.svg?branch=master"></a>
 </div>
 
-Catmandu::RKD - Retrieve items from the RKD
+Catmandu::Store::RKD - Retrieve items from the RKD
 
 # SYNOPSIS
 
-This module contains two submodules; a [fix](https://metacpan.org/pod/Catmandu::Fix::rkd_search) to lookup a name in 
+This module contains two submodules; a [fix](https://metacpan.org/pod/Catmandu::Fix::rkd_name) to lookup a name in 
 [RKD](https://rkd.nl/nl/collecties/overige-databases/open-search-rkdartists), and a [store](https://metacpan.org/pod/Catmandu::Store::RKD) to 
 lookup an artist id (_kunstenaarsnummer_) in the RKD database.
 
 # DESCRIPTION
 
-## [Catmandu::Fix::rkd\_search](https://metacpan.org/pod/Catmandu::Fix::rkd_search)
+## [Catmandu::Fix::rkd\_name](https://metacpan.org/pod/Catmandu::Fix::rkd_name)
 
 The fix takes a name (first name, last name or a combination) and performs a lookup to the RKD artists database. It 
 returns an array of results. Every result is of the form:
@@ -44,7 +44,6 @@ returns an array containing either one or no results.  Every result is of the fo
 
 [Catmandu](https://metacpan.org/pod/Catmandu)
 [Catmandu::Fix::rkd\_name](https://metacpan.org/pod/Catmandu::Fix::rkd_name)
-[Catmandu::Store::RKD](https://metacpan.org/pod/Catmandu::Store::RKD)
 
 # AUTHORS
 
